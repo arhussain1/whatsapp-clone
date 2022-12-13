@@ -1,9 +1,12 @@
+import Navbar from "./components/Navbar/Navbar";
+import Search from "./components/Search/Search";
 import "./Sidebar.css";
 
 const Sidebar = () => {
 	return (
 		<div className="sidebar__container">
-			<p>Sidebar</p>
+			<Navbar />
+			<Search />
 		</div>
 	);
 };

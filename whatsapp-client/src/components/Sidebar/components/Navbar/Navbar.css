@@ -1,0 +1,5 @@
+.navbar {
+	background-color: salmon;
+	display: flex;
+	height: 60px;
+}
