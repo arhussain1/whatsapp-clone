@@ -1,0 +1,6 @@
+.sidebar__container {
+	display: flex;
+	flex-direction: column;
+	background-color: beige;
+	flex: 2;
+}

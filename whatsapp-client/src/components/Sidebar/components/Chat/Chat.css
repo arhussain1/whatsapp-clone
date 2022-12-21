@@ -1,0 +1,33 @@
+.chat {
+	display: flex;
+	align-items: center;
+	height: 80px;
+	padding-left: 5px;
+	background-color: white;
+}
+
+.chat:hover {
+	background-color: rgb(240, 240, 240);
+	cursor: pointer;
+}
+
+.profile-picture-container {
+	display: flex;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 5px;
+	min-width: 40px;
+	flex-basis: 60px;
+}
+
+.profile-picture {
+	width: 100%;
+	height: auto;
+}
+
+.chat-description {
+	display: flex;
+	flex-direction: column;
+	height: 50px;
+	justify-content: space-between;
+}
