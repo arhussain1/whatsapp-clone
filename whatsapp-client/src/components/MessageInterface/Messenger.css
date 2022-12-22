@@ -1,6 +1,29 @@
 .MessageInterface__container {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(184, 195, 199);
+	background-color: rgb(243, 239, 239);
 	flex: 5;
+}
+
+.messenger__footer {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	padding: 10px;
+}
+
+.messenger__footer > form {
+	display: flex;
+	flex: 1;
+}
+
+.messenger__footer > form > input {
+	flex: 1;
+	border-radius: 30px;
+	padding: 10px;
+	border: none;
+}
+
+.messenger__footer > form > button {
+	display: none;
 }

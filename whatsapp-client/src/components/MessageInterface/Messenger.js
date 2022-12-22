@@ -7,6 +7,12 @@ const Messenger = (messages) => {
 		<div className="MessageInterface__container">
 			<MessengerNavbar />
 			<MessengerBody messages={messages} />
+			<div className="messenger__footer">
+				<form>
+					<input placeholder="type a message" type="text" />
+					<button type="submit">send</button>
+				</form>
+			</div>
 		</div>
 	);
 };
