@@ -1,7 +1,36 @@
 .MessageInterface__container {
 	background-color: rgb(184, 195, 199);
-	background-image: url("./background-images/background-light.jpeg");
+	background-image: url("./background-images/background-chat.png");
 	background-position: center;
 	background-repeat: repeat;
 	flex: 5;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+.messenger__message {
+	position: relative;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	width: fit-content;
+	margin-bottom: 30px;
+}
+
+.messenger__message-sent {
+	background-color: #dcf8c6;
+	margin-left: auto;
+}
+
+.messenger__message-timestamp {
+	font-size: xx-small;
+	margin-left: 10px;
+}
+
+.messenger__message-owner {
+	position: absolute;
+	top: -18px;
+	font-size: small;
+	font-weight: 800;
 }
