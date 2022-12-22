@@ -1,3 +1,4 @@
+import ChatMessage from "./components/ChatMessage/ChatMessage";
 import "./MessageInterface.css";
 
 const MessageInterface = (messages) => {
@@ -20,25 +21,9 @@ const MessageInterface = (messages) => {
 	const generateChatMessages = (chatMessages) => {
 		return chatMessages.map((message) => {
 			if (message.owner === owner) {
-				return (
-					<div className="messenger__message messenger__message-sent">
-						<span className="messenger__message-owner">{message.owner}</span>
-						<span>{message.text}</span>
-						<span className="messenger__message-timestamp">
-							{message.createdAt.toDateString()}
-						</span>
-					</div>
-				);
+				return <ChatMessage isSentMessage message={message} />;
 			}
-			return (
-				<div className="messenger__message">
-					<span className="messenger__message-owner">{message.owner}</span>
-					<span>{message.text}</span>
-					<span className="messenger__message-timestamp">
-						{message.createdAt.toDateString()}
-					</span>
-				</div>
-			);
+			return <ChatMessage message={message} />;
 		});
 	};
 
