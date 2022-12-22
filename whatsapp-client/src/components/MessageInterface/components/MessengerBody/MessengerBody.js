@@ -1,7 +1,7 @@
-import ChatMessage from "./components/ChatMessage/ChatMessage";
-import "./MessageInterface.css";
+import ChatMessage from "../ChatMessage/ChatMessage";
+import "./MessengerBody.css";
 
-const MessageInterface = (messages) => {
+const MessengerBody = ({ messages }) => {
 	const owner = "Joker";
 
 	const tenMinsAgo = new Date(new Date().getTime() + -10 * 60000);
@@ -26,10 +26,9 @@ const MessageInterface = (messages) => {
 			return <ChatMessage message={message} />;
 		});
 	};
-
 	const generatedMessages = generateChatMessages(fakeMessages);
 
-	return <div className="MessageInterface__container">{generatedMessages}</div>;
+	return <div className="container">{generatedMessages}</div>;
 };
 
-export default MessageInterface;
+export default MessengerBody;
