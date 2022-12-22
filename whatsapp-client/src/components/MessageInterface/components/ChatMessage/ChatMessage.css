@@ -1,0 +1,25 @@
+.message {
+	position: relative;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	width: fit-content;
+	margin-bottom: 30px;
+}
+
+.message--sent {
+	background-color: #dcf8c6;
+	margin-left: auto;
+}
+
+.message-timestamp {
+	font-size: xx-small;
+	margin-left: 10px;
+}
+
+.message-owner {
+	position: absolute;
+	top: -18px;
+	font-size: small;
+	font-weight: 800;
+}

@@ -1,5 +1,5 @@
-import MessageInterface from "./components/MessageInterface/MessageInterface";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Messenger from "./components/MessageInterface/Messenger";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 		<div className="app">
 			<div className="app__body">
 				<Sidebar />
-				<MessageInterface />
+				<Messenger />
 			</div>
 		</div>
 	);
