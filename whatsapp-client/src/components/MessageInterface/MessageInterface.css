@@ -1,4 +1,7 @@
 .MessageInterface__container {
 	background-color: rgb(184, 195, 199);
+	background-image: url("./background-images/background-light.jpeg");
+	background-position: center;
+	background-repeat: repeat;
 	flex: 5;
 }
