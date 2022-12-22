@@ -1,5 +1,5 @@
 import Chat from "./components/Chat/Chat";
-import Navbar from "./components/Navbar/Navbar";
+import SideBarNavbar from "./components/SideBarNavbar/SideBarNavbar";
 import Search from "./components/Search/Search";
 import "./Sidebar.css";
 
@@ -8,7 +8,7 @@ const Sidebar = () => {
 
 	return (
 		<div className="sidebar__container">
-			<Navbar />
+			<SideBarNavbar />
 			<Search />
 			{chats.map(() => (
 				<Chat
