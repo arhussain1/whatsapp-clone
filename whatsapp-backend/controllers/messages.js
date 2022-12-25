@@ -2,6 +2,15 @@ import Chat from "../models/chat.js";
 import Message from "../models/message.js";
 
 const MessagesController = {
+	FindByIds: async (req, res) => {
+		const messageIds = req.messageIds;
+
+		const pipeline = messageIds ? { $in: messageIds } : {};
+
+		const result = await Message.find({ id: pipeline });
+
+		res.json(result);
+	},
 	Create: async (req, res) => {
 		const { sender, recipient, content, chatId } = req.body;
 
