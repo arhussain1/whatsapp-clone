@@ -1,4 +1,11 @@
 import User from "../models/user.js";
+import JsonWebToken from "jsonwebtoken";
+
+const createToken = (userId) => {
+	return JsonWebToken.sign({ userId }, process.env.JWT_SECRET, {
+		expiresIn: "2d",
+	});
+};
 
 const UsersController = {
 	Signup: async (req, res) => {
@@ -6,8 +13,8 @@ const UsersController = {
 
 		try {
 			const user = await User.signup(email, password, name);
-
-			res.status(200).json(user);
+			const jwtToken = createToken(user.id);
+			res.status(200).json(jwtToken);
 		} catch (error) {
 			res.status(400).json({ error: error.message });
 		}
