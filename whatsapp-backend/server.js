@@ -23,5 +23,6 @@ mongoose.connect(mongodbUri, {
 app.get("/", (req, res) => res.status(200).send("Hello World"));
 app.use("/chats", ChatsRouter);
 app.use("/messages", MessagesRouter);
+app.use("/user");
 
 app.listen(port, () => console.log(`Listening on localhost:${port}`));
