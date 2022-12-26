@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import ChatsRouter from "./routes/chats.js";
 import MessagesRouter from "./routes/messages.js";
+import UsersRouter from "./routes/users.js";
 
 dotenv.config();
 
@@ -23,5 +24,6 @@ mongoose.connect(mongodbUri, {
 app.get("/", (req, res) => res.status(200).send("Hello World"));
 app.use("/chats", ChatsRouter);
 app.use("/messages", MessagesRouter);
+app.use("/users", UsersRouter);
 
 app.listen(port, () => console.log(`Listening on localhost:${port}`));
