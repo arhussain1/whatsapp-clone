@@ -19,6 +19,17 @@ const UsersController = {
 			res.status(400).json({ error: error.message });
 		}
 	},
+	Login: async (req, res) => {
+		const { email, password } = req.body;
+
+		try {
+			const user = await User.login(email, password);
+			const jwtToken = createToken(user.Id);
+			res.status(200).json({ token: jwtToken, userId: user.id });
+		} catch (error) {
+			res.status(400).json({ error: error.message });
+		}
+	},
 };
 
 export default UsersController;
