@@ -1,0 +1,56 @@
+.home__container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+.home__welcome-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	border: 1px solid black;
+	border-radius: 20px;
+	height: 400px;
+	width: 500px;
+	padding: 20px;
+	background-color: #dcf8c6;
+}
+
+.home__button-container {
+	display: flex;
+	margin-top: 20px;
+	gap: 20px;
+}
+
+.home__button--green {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-radius: 5px;
+	background-color: #c7f3a5;
+	cursor: pointer;
+	font-size: large;
+}
+
+.home__button--green:hover {
+	background-color: #9ec283;
+}
+
+.home__button--white {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-radius: 5px;
+	background-color: white;
+	cursor: pointer;
+	font-size: large;
+}
+
+.home__button--white:hover {
+	background-color: lightgray;
+}
