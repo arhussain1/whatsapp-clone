@@ -8,13 +8,14 @@
 
 .signup__center-square {
 	display: flex;
+	padding: 20px;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	border: 1px solid black;
 	border-radius: 20px;
-	height: 400px;
-	width: 500px;
+	min-height: 400px;
+	min-width: 500px;
 	background-color: #dcf8c6;
 }
 
