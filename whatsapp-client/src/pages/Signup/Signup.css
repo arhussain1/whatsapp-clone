@@ -51,3 +51,7 @@
 	cursor: pointer;
 	font-size: large;
 }
+
+.signup__button:hover {
+	background-color: #9ec283;
+}
