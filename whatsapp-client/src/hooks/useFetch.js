@@ -2,11 +2,12 @@ import { useState } from "react";
 
 const useFetch = () => {
 	const [data, setData] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	const fetchData = async (path, requestType, reqPayload) => {
 		setIsLoading(true);
+		setError(null);
 		const payload = reqPayload
 			? {
 					headers: {
@@ -20,11 +21,13 @@ const useFetch = () => {
 			method: requestType ?? "GET",
 			...payload,
 		})
-			.then((response) => {
-				if (!response.ok) throw Error("Failed to fetch resource");
-				return response.json();
-			})
+			.then((response) => response.json())
 			.then((data) => {
+				if (data.error) {
+					setError(data.error);
+					setIsLoading(false);
+					return;
+				}
 				setData(data);
 				setIsLoading(false);
 			})
