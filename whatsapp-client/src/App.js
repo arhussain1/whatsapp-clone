@@ -1,5 +1,3 @@
-import Sidebar from "./pages/Dashboard/components/Sidebar/Sidebar";
-import Messenger from "./pages/Dashboard/components/Messenger/Messenger";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
