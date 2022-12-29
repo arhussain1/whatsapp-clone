@@ -14,7 +14,7 @@ const UsersController = {
 		try {
 			const user = await User.signup(email, password, name);
 			const jwtToken = createToken(user.id);
-			res.status(200).json(jwtToken);
+			res.status(200).json({ jwtToken, email: user.email });
 		} catch (error) {
 			res.status(400).json({ error: error.message });
 		}
