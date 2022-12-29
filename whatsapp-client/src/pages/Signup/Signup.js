@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useAuthContext from "../../hooks/useAuthContext";
 import useFetch from "../../hooks/useFetch";
 import "./Signup.css";
 
@@ -8,6 +9,7 @@ const Signup = ({}) => {
 	const [password, setPassword] = useState("");
 
 	const [fetchData, data, isLoading, error] = useFetch();
+	const { dispatch } = useAuthContext();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -17,6 +19,13 @@ const Signup = ({}) => {
 			password,
 		});
 	};
+
+	useEffect(() => {
+		if (data) {
+			localStorage.setItem("user", JSON.stringify(data));
+			dispatch({ type: "LOGIN", payload: data });
+		}
+	}, [data]);
 
 	return (
 		<div className="signup__container">
