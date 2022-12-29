@@ -1,9 +1,18 @@
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import useAuthContext from "../../hooks/useAuthContext";
+import { useEffect } from "react";
 
 const Home = ({}) => {
+	const { user } = useAuthContext();
+
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		if (user) {
+			navigate("/dashboard");
+		}
+	}, [user]);
 	const handleRedirect = (path) => {
 		navigate(path);
 	};
