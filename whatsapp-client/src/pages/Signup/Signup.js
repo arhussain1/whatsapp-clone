@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useFetch from "../../hooks/useFetch";
 import "./Signup.css";
 
 const Signup = ({}) => {
@@ -6,11 +7,32 @@ const Signup = ({}) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
+	const [fetchData, data, isLoading, error] = useFetch();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		await fetchData("/users/signup", "POST", {
+			name,
+			email,
+			password,
+		});
+	};
+
 	return (
 		<div className="signup__container">
 			<div className="signup__center-square">
 				<h2>Signup page</h2>
 				<form>
+					{isLoading && (
+						<div>
+							<h3>Creating Account</h3>
+						</div>
+					)}
+					{data && (
+						<div>
+							<h5>Account created: {data.email}</h5>
+						</div>
+					)}
 					<div className="signup__input-container">
 						<label>Name</label>
 						<input
@@ -45,10 +67,20 @@ const Signup = ({}) => {
 						/>
 					</div>
 					<div className="signup__button-container">
-						<button className="signup__button" type="submit">
+						<button
+							className="signup__button"
+							type="submit"
+							onClick={handleSubmit}
+						>
 							Submit
 						</button>
 					</div>
+					{error && (
+						<div className="signup__error">
+							<h4>Error</h4>
+							<p>{error}</p>
+						</div>
+					)}
 				</form>
 			</div>
 		</div>
