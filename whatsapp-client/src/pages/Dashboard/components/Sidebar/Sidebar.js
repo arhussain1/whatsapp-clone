@@ -19,6 +19,7 @@ const Sidebar = () => {
 			{chats &&
 				chats.map((chat) => (
 					<Chat
+						key={chat._id}
 						profileImageUrl="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
 						chatTitle={chat.name}
 						lastMessage="last message"
