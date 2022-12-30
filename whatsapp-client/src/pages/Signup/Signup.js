@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import "./Signup.css";
 
@@ -10,6 +11,7 @@ const Signup = ({}) => {
 
 	const [fetchData, data, isLoading, error] = useFetch();
 	const { dispatch } = useAuthContext();
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -24,6 +26,7 @@ const Signup = ({}) => {
 		if (data) {
 			localStorage.setItem("user", JSON.stringify(data));
 			dispatch({ type: "LOGIN", payload: data });
+			navigate("/dashboard");
 		}
 	}, [data]);
 
