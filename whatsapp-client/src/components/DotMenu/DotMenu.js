@@ -2,7 +2,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
 import "./DotMenu.css";
 
-const DotMenu = () => {
+const DotMenu = ({ children }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	return (
@@ -15,7 +15,7 @@ const DotMenu = () => {
 			>
 				<MoreVertIcon />
 			</div>
-			{isMenuOpen && <div className="menu__container">Hey there</div>}
+			{isMenuOpen && <div className="menu__container">{children}</div>}
 		</div>
 	);
 };
