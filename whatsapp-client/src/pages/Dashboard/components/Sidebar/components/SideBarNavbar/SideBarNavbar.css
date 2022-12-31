@@ -1,5 +1,7 @@
 .sidebar__navbar {
-	background-color: salmon;
+	background-color: rgb(243, 239, 239);
 	display: flex;
+	align-items: center;
 	height: 60px;
+	justify-content: space-between;
 }

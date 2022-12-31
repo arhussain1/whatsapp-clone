@@ -1,0 +1,13 @@
+.dropdown-item-container {
+	display: flex;
+	background-color: white;
+	height: 40px;
+	align-items: center;
+	padding: 5px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.dropdown-item-container:hover {
+	background-color: lightgray;
+}
