@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import DropdownItem from "../../../../../../components/DotMenu/components/DropdownItem/DropdownItem";
 import DotMenu from "../../../../../../components/DotMenu/DotMenu";
 import useAuthContext from "../../../../../../hooks/useAuthContext";
@@ -5,11 +6,12 @@ import "./SideBarNavbar.css";
 
 const SideBarNavbar = () => {
 	const { dispatch } = useAuthContext();
+	const navigate = useNavigate();
 
 	const logout = () => {
 		localStorage.removeItem("user");
 		dispatch({ type: "LOGOUT" });
-		console.log("I logged out");
+		navigate("/");
 	};
 
 	return (
