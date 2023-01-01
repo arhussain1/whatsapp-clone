@@ -7,6 +7,10 @@ const UserSchema = new mongoose.Schema({
 	password: { type: String, required: true },
 	name: { type: String, required: true },
 	chats: { type: Array, default: [] },
+	profileImage: {
+		data: Buffer,
+		contentType: String,
+	},
 });
 
 // signup helper method
