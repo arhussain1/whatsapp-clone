@@ -9,9 +9,6 @@ dotenv.config();
 
 const router = express.Router();
 
-// upload file to the servers file system using multer
-const localUpload = multer({ dest: "uploads/" });
-
 // get access to s3
 const bucketName = process.env.AWS_BUCKET_NAME;
 const region = process.env.AWS_BUCKET_REGION;
