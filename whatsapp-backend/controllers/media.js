@@ -7,8 +7,9 @@ const MediaController = {
 		const readStream = getFileStream(key);
 		readStream.pipe(res);
 	},
-	UploadImage: async (req, res) => {
-		console.log("file", req.file);
+	SendFile: async (req, res) => {
+		// send the file path to mongo to be stored
+
 		res.send("You called Media Create");
 	},
 };

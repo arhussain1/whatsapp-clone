@@ -32,6 +32,6 @@ const router = express.Router();
 // through an array of keys there. This gives more control on the frontend.
 
 router.get("/:key", MediaController.GetFile);
-router.post("/", uploadFile().single("file"), MediaController.UploadImage);
+router.post("/", uploadFile().single("file"), MediaController.SendFile);
 
 export default router;
