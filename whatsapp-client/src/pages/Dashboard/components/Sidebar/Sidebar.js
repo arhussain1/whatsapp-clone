@@ -2,14 +2,17 @@ import Chat from "./components/Chat/Chat";
 import SideBarNavbar from "./components/SideBarNavbar/SideBarNavbar";
 import Search from "./components/Search/Search";
 import "./Sidebar.css";
-import useFetch from "../../../../hooks/useFetch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
-	const [fetchData, chats, isLoading, error] = useFetch();
+	const [chats, setChats] = useState();
 
 	useEffect(() => {
-		fetchData("/chats");
+		fetch("/chats")
+			.then((response) => response.json())
+			.then((data) => {
+				setChats(data);
+			});
 	}, []);
 
 	return (
