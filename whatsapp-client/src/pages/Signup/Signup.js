@@ -1,34 +1,28 @@
 import { useEffect, useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
 import "./Signup.css";
+import { useSignup } from "../../hooks/useSignup";
 
 const Signup = ({}) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [signup, isLoading, error] = useSignup();
 
-	const [fetchData, data, isLoading, error] = useFetch();
-	const { dispatch } = useAuthContext();
+	const { user } = useAuthContext();
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await fetchData("/users/signup", "POST", {
-			name,
-			email,
-			password,
-		});
+		await signup(name, email, password);
 	};
 
 	useEffect(() => {
-		if (data) {
-			localStorage.setItem("user", JSON.stringify(data));
-			dispatch({ type: "LOGIN", payload: data });
+		if (user?.token) {
 			navigate("/dashboard");
 		}
-	}, [data]);
+	}, [user]);
 
 	return (
 		<div className="signup__container">
@@ -40,9 +34,9 @@ const Signup = ({}) => {
 							<h3>Creating Account</h3>
 						</div>
 					)}
-					{data && (
+					{user && (
 						<div>
-							<h5>Account created: {data.email}</h5>
+							<h5>Account created: {user.email}</h5>
 						</div>
 					)}
 					<div className="signup__input-container">
