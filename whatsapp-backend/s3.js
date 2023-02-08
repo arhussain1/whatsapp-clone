@@ -30,3 +30,11 @@ export const uploadFile = (metaData) => {
 		}),
 	});
 };
+
+export const getFileStream = (fileKey) => {
+	const params = {
+		Key: fileKey,
+		Bucket: bucketName,
+	};
+	return S3.getObject(params).createReadStream();
+};
