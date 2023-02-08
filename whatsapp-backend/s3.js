@@ -16,7 +16,7 @@ const S3 = new AWS.S3({
 	secretAccessKey,
 });
 
-export const uploadFile = (s3FolderName, metaData) => {
+export const uploadFile = (metaData) => {
 	return multer({
 		storage: multerS3({
 			s3: S3,
@@ -25,10 +25,7 @@ export const uploadFile = (s3FolderName, metaData) => {
 				callback(null, { ...metaData });
 			},
 			key: (req, file, callback) => {
-				callback(
-					null,
-					`${s3FolderName}/${new Date().toISOString()}-${file.originalname}`
-				);
+				callback(null, `${new Date().toISOString()}-${file.originalname}`);
 			},
 		}),
 	});
