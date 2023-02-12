@@ -8,6 +8,9 @@ const Signup = ({}) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [profileImage, setProfileImage] = useState();
+	const [profileImageUrl, setProfileImageUrl] = useState();
+
 	const [signup, isLoading, error] = useSignup();
 
 	const { user } = useAuthContext();
@@ -23,6 +26,9 @@ const Signup = ({}) => {
 			navigate("/dashboard");
 		}
 	}, [user]);
+	useEffect(() => {
+		console.log(profileImageUrl);
+	}, [profileImageUrl]);
 
 	return (
 		<div className="signup__container">
@@ -71,6 +77,24 @@ const Signup = ({}) => {
 							}}
 							value={password}
 						/>
+					</div>
+					<div className="signup__image-upload-container">
+						<div className="signup__image-uploader">
+							<label>Profile Image</label>
+							<input
+								type="file"
+								onChange={(e) => {
+									const file = e.target.files[0];
+									setProfileImage(file);
+									setProfileImageUrl(URL.createObjectURL(file));
+								}}
+							/>
+						</div>
+						{profileImageUrl && (
+							<div className="signup__image-container">
+								<img src={profileImageUrl} className="signup__image" />
+							</div>
+						)}
 					</div>
 					<div className="signup__button-container">
 						<button

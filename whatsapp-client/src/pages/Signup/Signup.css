@@ -72,3 +72,36 @@
 	gap: 20px;
 	box-sizing: border-box;
 }
+
+.signup__file-upload-button {
+	display: flex;
+	width: 100px;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+}
+
+.signup__image-upload-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.signup__image-uploader {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.signup__image-container {
+	display: flex;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 5px;
+	min-width: 60px;
+	flex-basis: 60px;
+}
+
+.signup__image {
+	width: 100%;
+	height: auto;
+}
