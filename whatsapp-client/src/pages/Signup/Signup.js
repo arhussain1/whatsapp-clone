@@ -84,6 +84,8 @@ const Signup = ({}) => {
 							<input
 								type="file"
 								onChange={(e) => {
+									setProfileImage(null);
+									setProfileImageUrl(null);
 									const file = e.target.files[0];
 									setProfileImage(file);
 									setProfileImageUrl(URL.createObjectURL(file));
