@@ -21,14 +21,24 @@ const Signup = ({}) => {
 		await signup(name, email, password);
 	};
 
+	const handleImageUpload = (e) => {
+		setProfileImage(null);
+		setProfileImageUrl(null);
+		const file = e.target.files[0];
+		if (!file) return;
+		setProfileImage(file);
+		setProfileImageUrl(URL.createObjectURL(file));
+	};
+
 	useEffect(() => {
 		if (user?.token) {
 			navigate("/dashboard");
 		}
 	}, [user]);
 	useEffect(() => {
-		console.log(profileImageUrl);
-	}, [profileImageUrl]);
+		console.log("profileImage", profileImage);
+		console.log("profileImageUrl", profileImageUrl);
+	}, [profileImageUrl, profileImage]);
 
 	return (
 		<div className="signup__container">
@@ -81,16 +91,7 @@ const Signup = ({}) => {
 					<div className="signup__image-upload-container">
 						<div className="signup__image-uploader">
 							<label>Profile Image</label>
-							<input
-								type="file"
-								onChange={(e) => {
-									setProfileImage(null);
-									setProfileImageUrl(null);
-									const file = e.target.files[0];
-									setProfileImage(file);
-									setProfileImageUrl(URL.createObjectURL(file));
-								}}
-							/>
+							<input type="file" onChange={handleImageUpload} />
 						</div>
 						{profileImageUrl && (
 							<div className="signup__image-container">
