@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
-import useFetch from "../../hooks/useFetch";
+import { useLogin } from "../../hooks/useLogin";
 import "./Login.css";
 
 const Login = ({}) => {
-	const { user, dispatch } = useAuthContext();
+	const { user } = useAuthContext();
 
 	const navigate = useNavigate();
 
@@ -17,23 +17,12 @@ const Login = ({}) => {
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
-	const [fetchData, data, isLoading, error] = useFetch();
+	const [login, isLoading, error] = useLogin();
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		await fetchData("/users/login", "POST", {
-			email,
-			password,
-		});
+		await login(email, password);
 	};
-
-	useEffect(() => {
-		if (data) {
-			localStorage.setItem("user", JSON.stringify(data));
-			dispatch({ type: "LOGIN", payload: data });
-		}
-	}, [data]);
 
 	return (
 		<div className="login__container">
