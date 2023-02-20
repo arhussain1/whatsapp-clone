@@ -18,7 +18,14 @@ const Signup = ({}) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await signup(name, email, password);
+		const formData = new FormData();
+		formData.append("name", name);
+		formData.append("email", email);
+		formData.append("password", password);
+		if (profileImage) {
+			formData.append("profile-image", profileImage, profileImage.name);
+		}
+		await signup(formData);
 	};
 
 	const handleImageUpload = (e) => {
@@ -35,10 +42,6 @@ const Signup = ({}) => {
 			navigate("/dashboard");
 		}
 	}, [user]);
-	useEffect(() => {
-		console.log("profileImage", profileImage);
-		console.log("profileImageUrl", profileImageUrl);
-	}, [profileImageUrl, profileImage]);
 
 	return (
 		<div className="signup__container">

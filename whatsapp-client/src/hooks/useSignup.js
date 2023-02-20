@@ -6,20 +6,13 @@ export const useSignup = () => {
 	const [error, setError] = useState(null);
 	const { dispatch } = useAuthContext();
 
-	const signup = async (name, email, password) => {
+	const signup = async (formData) => {
 		setIsLoading(true);
 		setError(null);
 
 		const response = await fetch("/users/signup", {
 			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				name,
-				email,
-				password,
-			}),
+			body: formData,
 		});
 		const json = await response.json();
 
@@ -28,7 +21,6 @@ export const useSignup = () => {
 			setError(json.error);
 			return;
 		}
-		console.log("this should not run if error");
 		localStorage.setItem("user", JSON.stringify(json));
 		dispatch({
 			type: "LOGIN",
