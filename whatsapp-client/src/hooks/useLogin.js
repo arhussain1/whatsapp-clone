@@ -27,7 +27,6 @@ export const useLogin = () => {
 			setError(json.error);
 			return;
 		}
-		console.log("this should not run if error");
 		localStorage.setItem("user", JSON.stringify(json));
 		dispatch({
 			type: "LOGIN",
