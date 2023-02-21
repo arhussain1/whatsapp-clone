@@ -1,8 +1,8 @@
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useEffect, useRef, useState } from "react";
-import "./DotMenu.css";
+import "./DropdownMenu.css";
 
-const DotMenu = ({ children }) => {
+const DropdownMenu = ({ children, iconOveride, menuPosition = "left" }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const dropdownRef = useRef(null);
 
@@ -20,18 +20,27 @@ const DotMenu = ({ children }) => {
 	}, []);
 
 	return (
-		<div className="dot-menu__container" ref={dropdownRef}>
+		<div className="menu__container" ref={dropdownRef}>
 			<div
-				className="dot__container"
 				onClick={() => {
 					setIsMenuOpen(!isMenuOpen);
 				}}
 			>
-				<MoreVertIcon />
+				{iconOveride ? (
+					iconOveride
+				) : (
+					<div className="icon__container">
+						<MoreVertIcon />
+					</div>
+				)}
 			</div>
-			{isMenuOpen && <div className="menu__container">{children}</div>}
+			{isMenuOpen && children && (
+				<div className={`menu-list__container--${menuPosition}`}>
+					{children}
+				</div>
+			)}
 		</div>
 	);
 };
 
-export default DotMenu;
+export default DropdownMenu;
