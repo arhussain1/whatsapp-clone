@@ -1,4 +1,4 @@
-.dot-menu__container {
+.menu__container {
 	position: relative;
 	display: flex;
 	width: fit-content;
@@ -6,7 +6,7 @@
 	flex-direction: column;
 }
 
-.dot__container {
+.icon__container {
 	display: flex;
 	cursor: pointer;
 	width: 40px;
@@ -18,17 +18,28 @@
 	border-radius: 50%;
 }
 
-.dot__container:hover {
+.icon__container:hover {
 	background-color: lightgrey;
 }
 
-.menu__container {
+.menu-list__container--left {
 	position: absolute;
 	background-color: white;
 	box-shadow: 0px 0px 10px 1px rgb(41, 40, 40);
 	min-width: 200px;
 	top: 48px;
 	right: 15px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.menu-list__container--right {
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 0px 10px 1px rgb(41, 40, 40);
+	min-width: 200px;
+	top: 48px;
+	left: 5px;
 	border-radius: 5px;
 	overflow: hidden;
 }
